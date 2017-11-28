@@ -5,6 +5,12 @@ import java.util.List;
 
 import com.twitter.penguin.korean.TwitterKoreanProcessorJava;
 import com.twitter.penguin.korean.tokenizer.KoreanTokenizer;
+import com.twitter.penguin.korean.util.CharArraySet;
+import com.twitter.penguin.korean.util.KoreanDictionaryProvider;
+import com.twitter.penguin.korean.util.KoreanPos;
+
+import scala.Enumeration.Value;
+import scala.collection.mutable.Map;
 
 
 public class TktInterface {
@@ -42,6 +48,18 @@ public class TktInterface {
             .enablePhraseExtractorSpamFilter()
             .build();
         return processor.extractPhrases(string);
+    }
+
+    public Map<Value, CharArraySet> koreanDictionary() {
+        return KoreanDictionaryProvider.koreanDictionary();
+    }
+
+    public scala.collection.immutable.Map<Object, Value> shortCut() {
+        return KoreanPos.shortCut();
+    }
+
+    public Value koreanPoswithName(String pos) {
+    	return KoreanPos.withName(pos);
     }
 
     public static void main(String[] args) throws Exception {
