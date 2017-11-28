@@ -58,7 +58,7 @@ public class TktInterface {
         return KoreanPos.shortCut();
     }
 
-    public Value koreanPoswithName(String pos) {
+    public Value koreanPosWithName(String pos) {
     	return KoreanPos.withName(pos);
     }
 
